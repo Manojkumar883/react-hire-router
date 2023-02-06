@@ -1,13 +1,20 @@
+import {Route, Routes, Link} from "react-router-dom"
+import PersonProfile from "./../../PersonProfile/index"
+
+
 function PeopleListItem(props) {
   const { person } = props
 
+
   return (
+    <>
     <li>
-      <h3>
-        {person.name.first} {person.name.last}
-      </h3>
+      <Link to = {`/view/${person.login.uuid}`} state ={person} setHiredPeople = {props.setHiredPeople}>
+        {person.name.first} {person.name.last} </Link>
+        
       {person.wage && <p>Wage: £{person.wage}</p>}
     </li>
+    </>
   )
 }
 

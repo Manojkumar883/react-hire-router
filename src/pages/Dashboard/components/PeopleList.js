@@ -5,11 +5,14 @@ function PeopleList(props) {
 
   return (
     <ul>
-      {people.map((person, index) => (
-        <PeopleListItem key={index} person={person} />
-      ))}
+      {people != undefined
+      ? people.map((person, index) => {
+       return <PeopleListItem key={index} index={index}  setHiredPeople= {props.setHiredPeople} person={person} />
+      })
+    : ""}
     </ul>
   )
 }
+
 
 export default PeopleList
